@@ -18,12 +18,12 @@ namespace ArangoDBNetStandard.CollectionApi
         /// <summary>
         /// The transport client used to communicate with the ArangoDB host.
         /// </summary>
-        protected IApiClientTransport _transport;
+        protected readonly IApiClientTransport _transport;
 
         /// <summary>
         /// The root path of the API.
         /// </summary>
-        protected string _collectionApiPath = "_api/collection";
+        protected readonly string _collectionApiPath = "_api/collection";
 
         /// <summary>
         /// Creates an instance of <see cref="CollectionApiClient"/>
@@ -114,7 +114,7 @@ namespace ArangoDBNetStandard.CollectionApi
         {
             using (var response = await _transport.PutAsync(
                 _collectionApiPath + "/" + WebUtility.UrlEncode(collectionName) + "/truncate",
-                new byte[0], 
+                Array.Empty<byte>(), 
                 headers?.ToWebHeaderCollection(),
                 token).ConfigureAwait(false))
             {
@@ -150,7 +150,7 @@ namespace ArangoDBNetStandard.CollectionApi
                     return DeserializeJsonFromStream<GetCollectionCountResponse>(stream);
                 }
                 throw await GetApiErrorException(response).ConfigureAwait(false);
-            };
+            }
         }
 
         /// <summary>
@@ -331,7 +331,7 @@ namespace ArangoDBNetStandard.CollectionApi
                 }
 
                 throw await GetApiErrorException(response).ConfigureAwait(false);
-            };
+            }
         }
 
         /// <summary>

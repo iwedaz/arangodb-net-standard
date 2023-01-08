@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ArangoDBNetStandard.ViewApi.Models
+﻿namespace ArangoDBNetStandard.ViewApi.Models
 {
     /// <summary>
     /// Defines values for ArangoDB sort compression types.

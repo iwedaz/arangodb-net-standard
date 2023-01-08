@@ -1,5 +1,4 @@
-﻿using System.Net;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using ArangoDBNetStandard.Serialization;
 using ArangoDBNetStandard.Transport;
 using ArangoDBNetStandard.AdminApi.Models;
@@ -16,7 +15,7 @@ namespace ArangoDBNetStandard.AdminApi
         /// <summary>
         /// The transport client used to communicate with the ArangoDB host.
         /// </summary>
-        protected IApiClientTransport _client;
+        protected readonly IApiClientTransport _client;
 
         /// <summary>
         /// The root path of the API.
@@ -161,7 +160,7 @@ namespace ArangoDBNetStandard.AdminApi
         /// </remarks>
         public virtual async Task<GetServerEngineTypeResponse> GetServerEngineTypeAsync(CancellationToken token = default)
         {
-            string uri = "_api/engine";
+            const string uri = "_api/engine";
             using (var response = await _client.GetAsync(uri, null, token).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)

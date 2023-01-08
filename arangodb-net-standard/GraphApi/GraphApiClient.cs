@@ -2,7 +2,6 @@
 using ArangoDBNetStandard.Serialization;
 using ArangoDBNetStandard.Transport;
 using System;
-using System.Collections;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,7 +17,7 @@ namespace ArangoDBNetStandard.GraphApi
         /// <summary>
         /// The transport client used to communicate with the ArangoDB host.
         /// </summary>
-        protected IApiClientTransport _transport;
+        protected readonly IApiClientTransport _transport;
 
         /// <summary>
         /// The root path of the API.

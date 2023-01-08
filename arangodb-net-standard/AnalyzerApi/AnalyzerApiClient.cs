@@ -18,7 +18,7 @@ namespace ArangoDBNetStandard.AnalyzerApi
         /// <summary>
         /// The transport client used to communicate with the ArangoDB host.
         /// </summary>
-        protected IApiClientTransport _client;
+        protected readonly IApiClientTransport _client;
 
         /// <summary>
         /// The root path of the API.
@@ -56,8 +56,7 @@ namespace ArangoDBNetStandard.AnalyzerApi
         /// <returns></returns>
         public virtual async Task<GetAllAnalyzersResponse> GetAllAnalyzersAsync(CancellationToken token = default)
         {
-            string uri = _analyzerApiPath;
-            using (var response = await _client.GetAsync(uri, null, token).ConfigureAwait(false))
+            using (var response = await _client.GetAsync(_analyzerApiPath, null, token).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -81,9 +80,9 @@ namespace ArangoDBNetStandard.AnalyzerApi
             {
                 throw new ArgumentException("body is required", nameof(body));
             }
-            var uri = _analyzerApiPath;
+
             var content = GetContent(body, new ApiClientSerializationOptions(true, true));
-            using (var response = await _client.PostAsync(uri, content, null, token).ConfigureAwait(false))
+            using (var response = await _client.PostAsync(_analyzerApiPath, content, null, token).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
                 {

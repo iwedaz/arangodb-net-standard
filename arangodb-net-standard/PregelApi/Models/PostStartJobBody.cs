@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using static System.Net.WebRequestMethods;
+﻿using System.Collections.Generic;
+
+
 
 namespace ArangoDBNetStandard.PregelApi.Models
 {

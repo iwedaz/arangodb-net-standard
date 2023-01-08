@@ -1,5 +1,4 @@
-﻿using System.Net;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 using ArangoDBNetStandard.Serialization;
 using ArangoDBNetStandard.Transport;
@@ -18,7 +17,7 @@ namespace ArangoDBNetStandard.IndexApi
         /// <summary>
         /// The transport client used to communicate with the ArangoDB host.
         /// </summary>
-        protected IApiClientTransport _client;
+        protected readonly IApiClientTransport _client;
 
         /// <summary>
         /// The root path of the API.
@@ -105,12 +104,12 @@ namespace ArangoDBNetStandard.IndexApi
 
             if (query == null)
             {
-                throw new System.ArgumentException("query is required", nameof(query));
+                throw new ArgumentException("query is required", nameof(query));
             }
 
             if (string.IsNullOrEmpty(query.CollectionName))
             {
-                throw new System.ArgumentException("Collection name is required", nameof(query.CollectionName));
+                throw new ArgumentException("Collection name is required", nameof(query.CollectionName));
             }
 
             uri += '?' + query.ToQueryString();
@@ -144,17 +143,17 @@ namespace ArangoDBNetStandard.IndexApi
 
             if (query == null)
             {
-                throw new System.ArgumentException("query is required", nameof(query));
+                throw new ArgumentException("query is required", nameof(query));
             }
 
             if (string.IsNullOrEmpty(query.CollectionName))
             {
-                throw new System.ArgumentException("Collection name is required", nameof(query.CollectionName));
+                throw new ArgumentException("Collection name is required", nameof(query.CollectionName));
             }
 
             if (body == null)
             {
-                throw new System.ArgumentException("body is required", nameof(body));
+                throw new ArgumentException("body is required", nameof(body));
             }
 
             uri += '?' + query.ToQueryString();

@@ -1,6 +1,4 @@
-﻿using System.Net;
-
-namespace ArangoDBNetStandard.CollectionApi.Models
+﻿namespace ArangoDBNetStandard.CollectionApi.Models
 {
     public class PutLoadIndexesIntoMemoryResponse:ResponseBase
     {

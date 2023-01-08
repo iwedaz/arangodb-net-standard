@@ -10,7 +10,7 @@ namespace ArangoDBNetStandard.Serialization
     /// </summary>
     public class CamelCasePropertyNamesExceptDictionaryContractResolver : DefaultContractResolver
     {
-        private ApiClientSerializationOptions _serializationOptions;
+        private readonly ApiClientSerializationOptions _serializationOptions;
         public CamelCasePropertyNamesExceptDictionaryContractResolver(ApiClientSerializationOptions serializationOptions)
         {
             NamingStrategy = new CamelCaseNamingStrategy();

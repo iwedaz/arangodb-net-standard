@@ -22,7 +22,7 @@ namespace ArangoDBNetStandard.CursorApi
         /// <summary>
         /// The transport client used to communicate with the ArangoDB host.
         /// </summary>
-        protected IApiClientTransport _client;
+        protected readonly IApiClientTransport _client;
 
         /// <summary>
         /// Creates an instance of <see cref="CursorApiClient"/>
@@ -176,7 +176,7 @@ namespace ArangoDBNetStandard.CursorApi
             CancellationToken token = default)
         {
             string uri = _cursorApiPath + "/" + WebUtility.UrlEncode(cursorId);
-            using (var response = await _client.PutAsync(uri, new byte[0], null, token).ConfigureAwait(false))
+            using (var response = await _client.PutAsync(uri, Array.Empty<byte>(), null, token).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
                 {

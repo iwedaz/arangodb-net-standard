@@ -10,7 +10,7 @@ namespace ArangoDBNetStandard.Serialization
     /// </summary>
     public class DictionaryValueConverter : JsonConverter
     {
-        private ApiClientSerializationOptions _serializationOptions;
+        private readonly ApiClientSerializationOptions _serializationOptions;
 
         public DictionaryValueConverter(ApiClientSerializationOptions serializationOptions)
         {

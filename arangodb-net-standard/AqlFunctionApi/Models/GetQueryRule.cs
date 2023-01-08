@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ArangoDBNetStandard.AqlFunctionApi.Models
+﻿namespace ArangoDBNetStandard.AqlFunctionApi.Models
 {
     /// <summary>
     /// Describes an AQL optimizer rule. 

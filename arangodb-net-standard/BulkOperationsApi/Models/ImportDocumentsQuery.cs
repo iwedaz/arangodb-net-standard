@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Text;
+
+
 
 namespace ArangoDBNetStandard.BulkOperationsApi.Models
 {
@@ -141,7 +141,7 @@ namespace ArangoDBNetStandard.BulkOperationsApi.Models
             }
             if (OnDuplicate != null)
             {
-                query.Add("onDuplicate=" + Enum.GetName(typeof(ImportDocumentsOnDuplicate), OnDuplicate).ToString().ToLower());
+                query.Add("onDuplicate=" + Enum.GetName(typeof(ImportDocumentsOnDuplicate), OnDuplicate)?.ToLower());
             }
             return string.Join("&", query);
         }

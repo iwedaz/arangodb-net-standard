@@ -17,7 +17,7 @@ namespace ArangoDBNetStandard.UserApi
         /// <summary>
         /// The transport client used to communicate with the ArangoDB host.
         /// </summary>
-        protected IApiClientTransport _client;
+        protected readonly IApiClientTransport _client;
 
         /// <summary>
         /// The root path of the API.
@@ -175,8 +175,7 @@ namespace ArangoDBNetStandard.UserApi
         public virtual async Task<GetUsersResponse> GetUsersAsync(
             CancellationToken token = default)
         {
-            string uri = _userApiPath;
-            using (var response = await _client.GetAsync(uri, token: token).ConfigureAwait(false))
+            using (var response = await _client.GetAsync(_userApiPath, token: token).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
                 {

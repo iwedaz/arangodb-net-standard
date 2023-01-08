@@ -1,14 +1,13 @@
-﻿using ArangoDBNetStandard.ViewApi.Models;
-using ArangoDBNetStandard.Serialization;
+﻿using ArangoDBNetStandard.Serialization;
 using ArangoDBNetStandard.Transport;
-using System.Net;
+
 using System.Threading.Tasks;
 using System.Threading;
 using ArangoDBNetStandard.PregelApi.Models;
 using System.Collections.Generic;
-using static System.Net.WebRequestMethods;
 using System;
-using System.Security.Cryptography;
+
+
 
 namespace ArangoDBNetStandard.PregelApi
 {
@@ -67,9 +66,8 @@ namespace ArangoDBNetStandard.PregelApi
         /// <returns>The ID of the newly started job.</returns>
         public virtual async Task<string> PostStartJobAsync(PostStartJobBody body, CancellationToken token = default)
         {
-            string uri = _apiPath;
             var content = GetContent(body, new ApiClientSerializationOptions(true, true));
-            using (var response = await _transport.PostAsync(uri, content, token: token).ConfigureAwait(false))
+            using (var response = await _transport.PostAsync(_apiPath, content, token: token).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -116,8 +114,7 @@ namespace ArangoDBNetStandard.PregelApi
         /// </returns>
         public virtual async Task<List<PregelJobStatus>> GetAllRunningJobsAsync(CancellationToken token = default)
         {
-            string uri = _apiPath;
-            using (var response = await _transport.GetAsync(uri, token: token).ConfigureAwait(false))
+            using (var response = await _transport.GetAsync(_apiPath, token: token).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
                 {

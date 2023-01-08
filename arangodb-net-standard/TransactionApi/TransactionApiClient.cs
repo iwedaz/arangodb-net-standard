@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ArangoDBNetStandard.CursorApi.Models;
+
 using ArangoDBNetStandard.Serialization;
 using ArangoDBNetStandard.TransactionApi.Models;
 using ArangoDBNetStandard.Transport;
@@ -16,7 +16,7 @@ namespace ArangoDBNetStandard.TransactionApi
         /// <summary>
         /// The transport client used to communicate with the ArangoDB host.
         /// </summary>
-        protected IApiClientTransport _client;
+        protected readonly IApiClientTransport _client;
 
         /// <summary>
         /// The root path of the API.

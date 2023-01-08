@@ -1,6 +1,4 @@
-﻿using System.Net;
-
-namespace ArangoDBNetStandard.DocumentApi.Models
+﻿namespace ArangoDBNetStandard.DocumentApi.Models
 {
     /// <summary>
     /// Response model for a single POST Document request.

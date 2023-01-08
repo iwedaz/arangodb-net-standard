@@ -28,7 +28,7 @@ namespace ArangoDBNetStandard
         /// <summary>
         /// The transport client used to communicate with the ArangoDB host.
         /// </summary>
-        protected IApiClientTransport _transport;
+        private readonly IApiClientTransport _transport;
 
         /// <summary>
         /// AQL user functions management API.

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ArangoDBNetStandard.AqlFunctionApi.Models
+﻿namespace ArangoDBNetStandard.AqlFunctionApi.Models
 {
     /// <summary>
     /// Represents an AQL user function returned in a response results.

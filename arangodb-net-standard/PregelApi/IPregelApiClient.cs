@@ -1,10 +1,10 @@
 ﻿using ArangoDBNetStandard.PregelApi.Models;
-using ArangoDBNetStandard.ViewApi.Models;
+
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using static System.Net.WebRequestMethods;
+
+
 
 namespace ArangoDBNetStandard.PregelApi
 {

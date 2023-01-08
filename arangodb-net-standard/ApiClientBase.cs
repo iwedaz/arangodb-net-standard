@@ -15,7 +15,7 @@ namespace ArangoDBNetStandard
         /// the provided serialization layer.
         /// </summary>
         /// <param name="serialization"></param>
-        public ApiClientBase(IApiClientSerialization serialization)
+        protected ApiClientBase(IApiClientSerialization serialization)
         {
             _serialization = serialization;
         }
@@ -35,7 +35,7 @@ namespace ArangoDBNetStandard
             }
             catch (Exception e)
             {
-                throw new SerializationException($"An error occured while Deserializing an error response from Arango. See InnerException for more details.", e);
+                throw new SerializationException("An error occured while Deserializing an error response from Arango. See InnerException for more details.", e);
             }
         }
 
@@ -62,7 +62,7 @@ namespace ArangoDBNetStandard
             }
             catch (Exception e)
             {
-                throw new SerializationException($"An error occured while Deserializing the data response from Arango. See InnerException for more details.", e);
+                throw new SerializationException("An error occured while Deserializing the data response from Arango. See InnerException for more details.", e);
             }
         }
 
@@ -74,7 +74,7 @@ namespace ArangoDBNetStandard
             }
             catch (Exception e)
             {
-                throw new SerializationException($"A serialization error occured while preparing a request for Arango. See InnerException for more details.", e);
+                throw new SerializationException("A serialization error occured while preparing a request for Arango. See InnerException for more details.", e);
             }
         }
 
@@ -86,7 +86,7 @@ namespace ArangoDBNetStandard
             }
             catch (Exception e)
             {
-                throw new SerializationException($"A serialization error occured while preparing a request for Arango. See InnerException for more details.", e);
+                throw new SerializationException("A serialization error occured while preparing a request for Arango. See InnerException for more details.", e);
             }
         }
 

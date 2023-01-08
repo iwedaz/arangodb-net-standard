@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ArangoDBNetStandard.ViewApi.Models
+﻿namespace ArangoDBNetStandard.ViewApi.Models
 {
     /// <summary>
     /// Possible operations for search alias indexes.

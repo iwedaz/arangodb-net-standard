@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Text;
-
-namespace ArangoDBNetStandard.CollectionApi.Models
+﻿namespace ArangoDBNetStandard.CollectionApi.Models
 {
     /// <summary>
     /// Response from <see cref="ICollectionApiClient.GetChecksumAsync"/>

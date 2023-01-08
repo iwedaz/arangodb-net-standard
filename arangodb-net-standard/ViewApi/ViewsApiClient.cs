@@ -1,7 +1,7 @@
 ﻿using ArangoDBNetStandard.ViewApi.Models;
 using ArangoDBNetStandard.Serialization;
 using ArangoDBNetStandard.Transport;
-using System.Net;
+
 using System.Threading.Tasks;
 using System.Threading;
 
@@ -56,8 +56,7 @@ namespace ArangoDBNetStandard.ViewApi
         public virtual async Task<GetAllViewsResponse> GetAllViewsAsync(
             CancellationToken token = default)
         {
-            string uri = _apiPath;
-            using (var response = await _transport.GetAsync(uri,token:token).ConfigureAwait(false))
+            using (var response = await _transport.GetAsync(_apiPath,token:token).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -82,13 +81,12 @@ namespace ArangoDBNetStandard.ViewApi
         /// <returns></returns>
         public virtual async Task<ViewResponse> PostCreateViewAsync(ViewDetails body, bool ignoreNullValuesOnSerialization=true, CancellationToken token = default)
         {
-            string uri = _apiPath;
             var content = GetContent(body, 
                 new ApiClientSerializationOptions(
                     useCamelCasePropertyNames: true,
                     ignoreNullValues: ignoreNullValuesOnSerialization,
                     applySerializationOptionsToDictionaryValues: true));
-            using (var response = await _transport.PostAsync(uri, content).ConfigureAwait(false))
+            using (var response = await _transport.PostAsync(_apiPath, content).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
                 {

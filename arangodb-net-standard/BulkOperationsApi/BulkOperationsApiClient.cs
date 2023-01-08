@@ -2,7 +2,6 @@
 using ArangoDBNetStandard.Serialization;
 using ArangoDBNetStandard.Transport;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -19,12 +18,12 @@ namespace ArangoDBNetStandard.BulkOperationsApi
         /// <summary>
         /// The transport client used to communicate with the ArangoDB host.
         /// </summary>
-        protected IApiClientTransport _transport;
+        protected readonly IApiClientTransport _transport;
 
         /// <summary>
         /// The root path of the API.
         /// </summary>
-        protected string _bulkOperationsApiPath = "_api/import";
+        protected readonly string _bulkOperationsApiPath = "_api/import";
 
         /// <summary>
         /// Creates an instance of <see cref="BulkOperationsApiClient"/>
@@ -67,12 +66,12 @@ namespace ArangoDBNetStandard.BulkOperationsApi
                 throw new ArgumentException("body is required", nameof(body));
             }
 
-            if (body.DocumentAttributes == null || body.DocumentAttributes.Count() < 1)
+            if (body.DocumentAttributes == null || !body.DocumentAttributes.Any())
             {
                 throw new ArgumentException("DocumentAttributes is required", nameof(body.DocumentAttributes));
             }
 
-            if (body.ValueArrays == null || body.DocumentAttributes.Count() < 1)
+            if (body.ValueArrays == null || !body.DocumentAttributes.Any())
             {
                 throw new ArgumentException("ValueArrays is required", nameof(body.ValueArrays));
             }
@@ -164,7 +163,7 @@ namespace ArangoDBNetStandard.BulkOperationsApi
                 throw new ArgumentException("body is required", nameof(body));
             }
 
-            if (body.Documents == null || body.Documents.Count() < 1)
+            if (body.Documents == null || !body.Documents.Any())
             {
                 throw new ArgumentException("Documents is required", nameof(body.Documents));
             }

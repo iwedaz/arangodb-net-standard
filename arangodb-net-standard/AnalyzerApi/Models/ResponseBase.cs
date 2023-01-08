@@ -1,6 +1,6 @@
-﻿using System;
-using System.Net;
-using System.Text;
+﻿using System.Net;
+
+
 
 namespace ArangoDBNetStandard.AnalyzerApi.Models
 {

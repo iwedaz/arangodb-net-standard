@@ -1,7 +1,7 @@
 ﻿using ArangoDBNetStandard.AqlFunctionApi.Models;
 using ArangoDBNetStandard.Serialization;
 using ArangoDBNetStandard.Transport;
-using System.Collections;
+
 using System.Collections.Generic;
 using System.Net;
 using System.Threading;
@@ -147,7 +147,7 @@ namespace ArangoDBNetStandard.AqlFunctionApi
                 throw new System.ArgumentException("body is required", nameof(body));
             }
 
-            string uri = "_api/explain";
+            const string uri = "_api/explain";
 
             var content = GetContent(body, new ApiClientSerializationOptions(true, true));
             using (var response = await _transport.PostAsync(uri, content).ConfigureAwait(false))
@@ -177,7 +177,7 @@ namespace ArangoDBNetStandard.AqlFunctionApi
                 throw new System.ArgumentException("body is required", nameof(body));
             }
 
-            string uri = "_api/query";
+            const string uri = "_api/query";
 
             var content = GetContent(body, new ApiClientSerializationOptions(true, true));
             using (var response = await _transport.PostAsync(uri, content).ConfigureAwait(false))
@@ -327,7 +327,7 @@ namespace ArangoDBNetStandard.AqlFunctionApi
         public virtual async Task<ResponseBase> DeleteClearAqlQueryCacheAsync(
             CancellationToken token = default)
         {
-            string uri = "_api/query-cache";
+            const string uri = "_api/query-cache";
 
             using (var response = await _transport.DeleteAsync(uri).ConfigureAwait(false))
             {
@@ -353,7 +353,7 @@ namespace ArangoDBNetStandard.AqlFunctionApi
         public virtual async Task<List<CachedAqlQueryResult>> GetCachedAqlQueryResultsAsync(
             CancellationToken token = default)
         {
-            string uri = "_api/query-cache/entries";
+            const string uri = "_api/query-cache/entries";
             using (var response = await _transport.GetAsync(uri).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
@@ -376,7 +376,7 @@ namespace ArangoDBNetStandard.AqlFunctionApi
         public virtual async Task<QueryCacheGlobalProperties> GetQueryCacheGlobalPropertiesAsync(
             CancellationToken token = default)
         {
-            string uri = "_api/query-cache/properties";
+            const string uri = "_api/query-cache/properties";
             using (var response = await _transport.GetAsync(uri).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
@@ -409,7 +409,7 @@ namespace ArangoDBNetStandard.AqlFunctionApi
                 throw new System.ArgumentException("body is required", nameof(body));
             }
 
-            string uri = "_api/query-cache/properties";
+            const string uri = "_api/query-cache/properties";
 
             var content = GetContent(body, new ApiClientSerializationOptions(true, true));
             using (var response = await _transport.PutAsync(uri, content).ConfigureAwait(false))
@@ -432,7 +432,7 @@ namespace ArangoDBNetStandard.AqlFunctionApi
         public virtual async Task<QueryTrackingConfiguration> GetQueryTrackingConfigurationAsync(
             CancellationToken token = default)
         {
-            string uri = "_api/query/properties";
+            const string uri = "_api/query/properties";
             using (var response = await _transport.GetAsync(uri).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
@@ -464,7 +464,7 @@ namespace ArangoDBNetStandard.AqlFunctionApi
                 throw new System.ArgumentException("body is required", nameof(body));
             }
 
-            string uri = "_api/query/properties";
+            const string uri = "_api/query/properties";
 
             var content = GetContent(body, new ApiClientSerializationOptions(true, true));
             using (var response = await _transport.PutAsync(uri, content).ConfigureAwait(false))
@@ -521,7 +521,7 @@ namespace ArangoDBNetStandard.AqlFunctionApi
         /// <returns></returns>
         public virtual async Task<List<GetQueryRule>> GetQueryRulesAsync(CancellationToken token = default)
         {
-            string uri = "_api/query/rules";
+            const string uri = "_api/query/rules";
 
             using (var response = await _transport.GetAsync(uri).ConfigureAwait(false))
             {

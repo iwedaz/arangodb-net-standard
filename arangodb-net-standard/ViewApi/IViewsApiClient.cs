@@ -1,4 +1,3 @@
-﻿using ArangoDBNetStandard.Serialization;
 ﻿using ArangoDBNetStandard.ViewApi.Models;
 using System.Threading;
 using System.Threading.Tasks;

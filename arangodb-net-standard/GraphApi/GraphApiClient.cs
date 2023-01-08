@@ -287,7 +287,10 @@ namespace ArangoDBNetStandard.GraphApi
             {
                 uri += "?" + query.ToQueryString();
             }
-            var content = GetContent(vertex, serializationOptions);
+            //var content = GetContent(vertex, serializationOptions);
+            //%user_content%
+            var content = GetUserContent(vertex, serializationOptions);
+            //%user_content%
             using (var response = await _transport.PostAsync(uri, content,headers?.ToWebHeaderCollection(), token: token).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
@@ -394,7 +397,10 @@ namespace ArangoDBNetStandard.GraphApi
             GraphHeaderProperties headers = null, 
             CancellationToken token = default)
         {
-            var content = GetContent(edge, serializationOptions);
+            //var content = GetContent(edge, serializationOptions);
+            //%user_content%
+            var content = GetUserContent(edge, serializationOptions);
+            //%user_content%
 
             string uri = _graphApiPath + "/" + WebUtility.UrlEncode(graphName) +
                 "/edge/" + WebUtility.UrlEncode(collectionName);
@@ -748,7 +754,10 @@ namespace ArangoDBNetStandard.GraphApi
                 uri += "?" + query.ToQueryString();
             }
 
-            var content = GetContent(body, serializationOptions);
+            //var content = GetContent(body, serializationOptions);
+            //%user_content%
+            var content = GetUserContent(body, serializationOptions);
+            //%user_content%
             using (var response = await _transport.PatchAsync(uri, content,headers?.ToWebHeaderCollection(), token: token).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
@@ -828,7 +837,10 @@ namespace ArangoDBNetStandard.GraphApi
                 uri += "?" + query.ToQueryString();
             }
 
-            var content = GetContent(edge, serializationOptions);
+            //var content = GetContent(edge, serializationOptions);
+            //%user_content%
+            var content = GetUserContent(edge, serializationOptions);
+            //%user_content%
 
             using (var response = await _transport.PutAsync(uri, content, headers?.ToWebHeaderCollection(), token: token).ConfigureAwait(false))
             {
@@ -949,7 +961,10 @@ namespace ArangoDBNetStandard.GraphApi
                 uri += "?" + query.ToQueryString();
             }
 
-            var content = GetContent(edge, serializationOptions);
+            //var content = GetContent(edge, serializationOptions);
+            //%user_content%
+            var content = GetUserContent(edge, serializationOptions);
+            //%user_content%
             using (var response = await _transport.PatchAsync(uri, content, headers?.ToWebHeaderCollection(), token: token).ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
@@ -1027,7 +1042,10 @@ namespace ArangoDBNetStandard.GraphApi
             {
                 uri += "?" + query.ToQueryString();
             }
-            var content = GetContent(vertex, serializationOptions);
+            //var content = GetContent(vertex, serializationOptions);
+            //%user_content%
+            var content = GetUserContent(vertex, serializationOptions);
+            //%user_content%
             using (var response = await _transport.PutAsync(uri, content, headers?.ToWebHeaderCollection(),token:token).ConfigureAwait(false))
 
             {

@@ -118,7 +118,10 @@ namespace ArangoDBNetStandard.DocumentApi
                 uriString += "?" + query.ToQueryString();
             }
 
-            var content = GetContent(document, serializationOptions);
+            //var content = GetContent(document, serializationOptions);
+            //%user_content%
+            var content = GetUserContent(document, serializationOptions);
+            //%user_content%
             var headerCollection = GetHeaderCollection(headers);
             using (var response = await _client.PostAsync(uriString, content, headerCollection, token: token).ConfigureAwait(false))
             {
@@ -158,7 +161,10 @@ namespace ArangoDBNetStandard.DocumentApi
                 uriString += "?" + query.ToQueryString();
             }
 
-            var content = GetContent(documents, serializationOptions);
+            //var content = GetContent(documents, serializationOptions);
+            //%user_content%
+            var content = GetUserContent(documents, serializationOptions);
+            //%user_content%
             var headerCollection = GetHeaderCollection(headers);
             using (var response = await _client.PostAsync(uriString, content, headerCollection, token: token).ConfigureAwait(false))
             {
@@ -205,7 +211,10 @@ namespace ArangoDBNetStandard.DocumentApi
                 uri += "?" + query.ToQueryString();
             }
 
-            var content = GetContent(documents, serializationOptions);
+            //var content = GetContent(documents, serializationOptions);
+            //%user_content%
+            var content = GetUserContent(documents, serializationOptions);
+            //%user_content%
             var headerCollection = GetHeaderCollection(headers);
             using (var response = await _client.PutAsync(uri, content, headerCollection, token: token).ConfigureAwait(false))
             {
@@ -255,7 +264,10 @@ namespace ArangoDBNetStandard.DocumentApi
                 uri += "?" + opts.ToQueryString();
             }
 
-            var content = GetContent(doc, serializationOptions);
+            //var content = GetContent(doc, serializationOptions);
+            //%user_content%
+            var content = GetUserContent(doc, serializationOptions);
+            //%user_content%
             var headerCollection = GetHeaderCollection(headers);
             using (var response = await _client.PutAsync(uri, content, headerCollection, token: token).ConfigureAwait(false))
             {
@@ -605,7 +617,10 @@ namespace ArangoDBNetStandard.DocumentApi
                 uri += "?" + query.ToQueryString();
             }
 
-            var content = GetContent(patches, serializationOptions);
+            //var content = GetContent(patches, serializationOptions);
+            //%user_content%
+            var content = GetUserContent(patches, serializationOptions);
+            //%user_content%
             var headerCollection = GetHeaderCollection(headers);
             using (var response = await _client.PatchAsync(uri, content, headerCollection, token: token).ConfigureAwait(false))
             {
@@ -735,7 +750,10 @@ namespace ArangoDBNetStandard.DocumentApi
                 uriString += "?" + query.ToQueryString();
             }
 
-            var content = GetContent(body, serializationOptions);
+            //var content = GetContent(body, serializationOptions);
+            //%user_content%
+            var content = GetUserContent(body, serializationOptions);
+            //%user_content%
             var headerCollection = GetHeaderCollection(headers);
             using (var response = await _client.PatchAsync(uriString, content, headerCollection, token: token).ConfigureAwait(false))
             {

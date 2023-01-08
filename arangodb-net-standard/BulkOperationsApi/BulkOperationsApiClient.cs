@@ -171,6 +171,9 @@ namespace ArangoDBNetStandard.BulkOperationsApi
 
             var sb = new StringBuilder();
             var options = new ApiClientSerializationOptions(true, true);
+            //%user_content%
+            options.IsUserContent = true;
+            //%user_content%
 
             if (query.Type == "documents")
             {

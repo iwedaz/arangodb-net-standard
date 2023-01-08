@@ -35,6 +35,12 @@
         /// in dictionaries as they are: DontCamelCaseMe => "DontCamelCaseMe")        
         /// </summary>
         public bool ApplySerializationOptionsToDictionaryValues { get; set; }
+        //%user_content%
+        /// <summary>
+        /// Mark serializable object as user data
+        /// </summary>
+        public bool IsUserContent { get; set; }
+        //%user_content%
 
         /// <summary>
         /// Create serialization options.
